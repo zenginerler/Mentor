@@ -1,9 +1,80 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
+import './goal.dart';
+import './choice.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  // Root of the application
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MyHomePage(title: 'Demo App'),
+    );
+  }
 }
 
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  State<StatefulWidget> createState() {
+    // implementing createState
+    return _MyHomePageState();
+  }
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Mentor Demo App'),
+          backgroundColor: Colors.green[900],
+        ),
+        body: Container(
+          margin: EdgeInsets.only(top: 20),
+          child: Column(children: [
+            Goal(goalList[_goalIndex]['goalName']),
+            ...(goalList[_goalIndex]['goalChoices'] as List<String>)
+                .map((goal) {
+              return Choice(_testFunction, goal);
+            }).toList()
+          ]),
+        ),
+      ),
+    );
+  }
+
+  int _goalIndex = 0;
+  var goalList = [
+    {
+      'goalName': 'How many pages have you read?',
+      'goalChoices': ['0', '5', '10', '20']
+    },
+    {
+      'goalName': 'How many minutes have you exercised?',
+      'goalChoices': ['0', '5', '10', '20']
+    },
+    {
+      'goalName': 'How many questions have you solved?',
+      'goalChoices': ['0', '5', '10', '20']
+    }
+  ];
+
+  void _testFunction() {
+    setState(() {
+      _goalIndex++;
+    });
+    print('button handler version 1');
+  }
+}
+
+/*
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -115,3 +186,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+*/
