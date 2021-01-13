@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './goal.dart';
-import './choice.dart';
+import './quiz.dart';
 
 void main() => runApp(MyApp());
 
@@ -38,31 +37,42 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: Container(
           margin: EdgeInsets.only(top: 20),
-          child: Column(children: [
-            Goal(goalList[_goalIndex]['goalName']),
-            ...(goalList[_goalIndex]['goalChoices'] as List<String>)
-                .map((goal) {
-              return Choice(_testFunction, goal);
-            }).toList()
-          ]),
+          child: _goalIndex < _goalList.length
+              ? Quiz(
+                  goalList: _goalList,
+                  goalIndex: _goalIndex,
+                  testFunction: () => _testFunction(),
+                )
+              : Column(children: [
+                  Text(
+                    'You have completed the goal questionnaire!',
+                    style: TextStyle(fontSize: 25),
+                    textAlign: TextAlign.center,
+                  ),
+                  RaisedButton(
+                    child: Text('Restart'),
+                    onPressed: () => _resetQuiz(),
+                    color: Colors.red,
+                  ),
+                ]),
         ),
       ),
     );
   }
 
   int _goalIndex = 0;
-  var goalList = [
+  final _goalList = const [
     {
-      'goalName': 'How many pages have you read?',
-      'goalChoices': ['0', '5', '10', '20']
+      'questionText': 'How many pages have you read?',
+      'choiceTexts': ['0', '5', '10', '20']
     },
     {
-      'goalName': 'How many minutes have you exercised?',
-      'goalChoices': ['0', '5', '10', '20']
+      'questionText': 'How many minutes have you exercised?',
+      'choiceTexts': ['0', '5', '10', '20']
     },
     {
-      'goalName': 'How many questions have you solved?',
-      'goalChoices': ['0', '5', '10', '20']
+      'questionText': 'How many questions have you solved?',
+      'choiceTexts': ['0', '5', '10', '20']
     }
   ];
 
@@ -70,10 +80,14 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _goalIndex++;
     });
-    print('button handler version 1');
+  }
+
+  void _resetQuiz() {
+    setState(() {
+      _goalIndex = 0;
+    });
   }
 }
-
 /*
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
