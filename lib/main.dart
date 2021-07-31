@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(title: 'Demo App'),
+      home: MyHomePage(title: 'Mentor App'),
     );
   }
 }
@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Mentor Demo App'),
+          title: Text('Mentor App'),
           backgroundColor: Colors.green[900],
         ),
         body: Container(
