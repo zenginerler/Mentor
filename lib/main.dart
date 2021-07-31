@@ -1,94 +1,9 @@
 import 'package:flutter/material.dart';
 
-import './quiz.dart';
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  // Root of the application
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MyHomePage(title: 'Mentor App'),
-    );
-  }
+void main() {
+  runApp(MyApp());
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  State<StatefulWidget> createState() {
-    // implementing createState
-    return _MyHomePageState();
-  }
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Mentor App'),
-          backgroundColor: Colors.green[900],
-        ),
-        body: Container(
-          margin: EdgeInsets.only(top: 20),
-          child: _goalIndex < _goalList.length
-              ? Quiz(
-                  goalList: _goalList,
-                  goalIndex: _goalIndex,
-                  testFunction: () => _testFunction(),
-                )
-              : Column(children: [
-                  Text(
-                    'You have completed the goal questionnaire!',
-                    style: TextStyle(fontSize: 25),
-                    textAlign: TextAlign.center,
-                  ),
-                  RaisedButton(
-                    child: Text('Restart'),
-                    onPressed: () => _resetQuiz(),
-                    color: Colors.red,
-                  ),
-                ]),
-        ),
-      ),
-    );
-  }
-
-  int _goalIndex = 0;
-  final _goalList = const [
-    {
-      'questionText': 'How many pages have you read?',
-      'choiceTexts': ['0', '5', '10', '20']
-    },
-    {
-      'questionText': 'How many minutes have you exercised?',
-      'choiceTexts': ['0', '5', '10', '20']
-    },
-    {
-      'questionText': 'How many questions have you solved?',
-      'choiceTexts': ['0', '5', '10', '20']
-    }
-  ];
-
-  void _testFunction() {
-    setState(() {
-      _goalIndex++;
-    });
-  }
-
-  void _resetQuiz() {
-    setState(() {
-      _goalIndex = 0;
-    });
-  }
-}
-/*
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -105,19 +20,15 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.orange,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Mentor Demo App'),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -200,4 +111,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-*/
