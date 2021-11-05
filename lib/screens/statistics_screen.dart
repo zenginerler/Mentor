@@ -1,17 +1,32 @@
 import 'package:flutter/material.dart';
 
-class Statistics extends StatelessWidget {
-  const Statistics({Key? key}) : super(key: key);
+class StatisticsPage extends StatefulWidget {
+  const StatisticsPage({Key? key}) : super(key: key);
+
+  @override
+  _StatisticsPageState createState() => _StatisticsPageState();
+}
+
+class _StatisticsPageState extends State<StatisticsPage> {
+  int num1 = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("STATISTICS"),
+        title: const Text("Statistics"),
         backgroundColor: Colors.green,
         centerTitle: true,
       ),
-      body: const Center(child: Text("STATISTICS PAGE!")),
+      body: Center(child: Text("Statistics Page! $num1")),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => setState(() {
+          num1++;
+        }),
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+        backgroundColor: Colors.green,
+      ),
     );
   }
 }

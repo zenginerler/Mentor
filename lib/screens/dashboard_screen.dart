@@ -1,17 +1,32 @@
 import 'package:flutter/material.dart';
 
-class Dashboard extends StatelessWidget {
-  const Dashboard({Key? key}) : super(key: key);
+class DashboardPage extends StatefulWidget {
+  const DashboardPage({Key? key}) : super(key: key);
+
+  @override
+  _DashboardPageState createState() => _DashboardPageState();
+}
+
+class _DashboardPageState extends State<DashboardPage> {
+  int num1 = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("DASHBOARD"),
+        title: const Text("Dashboard"),
         backgroundColor: Colors.orange,
         centerTitle: true,
       ),
-      body: const Center(child: Text("DASHBOARD PAGE!")),
+      body: Center(child: Text("Dashboard Page! $num1")),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => setState(() {
+          num1++;
+        }),
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+        backgroundColor: Colors.orange,
+      ),
     );
   }
 }

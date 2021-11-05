@@ -15,17 +15,21 @@ class MainNavigation extends StatefulWidget {
 class _MainNavigationState extends State<MainNavigation> {
   int currentIndex = 2; // Start with the middle screen
   final screens = [
-    Home(),
-    Utilities(),
-    Dashboard(),
-    Statistics(),
-    Profile()
+    HomePage(),
+    UtilitiesPage(),
+    DashboardPage(),
+    StatisticsPage(),
+    ProfilePage()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screens[currentIndex], // Unpack the selected screen
+      // Unpack the selected screen --> body: screens[currentIndex]
+      body: IndexedStack(
+        index: currentIndex,
+        children: screens,
+      ), 
       bottomNavigationBar: BottomNavigationBar(
         // type: BottomNavigationBarType.fixed,
 
