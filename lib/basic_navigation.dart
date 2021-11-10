@@ -15,11 +15,11 @@ class MainNavigation extends StatefulWidget {
 class _MainNavigationState extends State<MainNavigation> {
   int currentIndex = 2; // Start with the middle screen
   final screens = [
-    HomePage(),
-    UtilitiesPage(),
-    DashboardPage(),
-    StatisticsPage(),
-    ProfilePage()
+    const HomePage(),
+    const UtilitiesPage(),
+    const DashboardPage(),
+    const StatisticsPage(),
+    const ProfilePage()
   ];
 
   @override
