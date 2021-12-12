@@ -1,6 +1,6 @@
 # Mentor
 
-A new Flutter project.
+Flutter Mobile Application Project for a non-profit organization.
 
 ## Previews
 
