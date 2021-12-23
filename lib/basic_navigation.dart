@@ -29,7 +29,7 @@ class _MainNavigationState extends State<MainNavigation> {
       body: IndexedStack(
         index: currentIndex,
         children: screens,
-      ), 
+      ),
       bottomNavigationBar: BottomNavigationBar(
         // type: BottomNavigationBarType.fixed,
 
