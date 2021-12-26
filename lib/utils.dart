@@ -4,8 +4,9 @@ import 'dart:collection';
 // Calendar event class
 class Event {
   final String title;
+  final String note;
 
-  const Event(this.title);
+  const Event(this.title, this.note);
 
   @override
   String toString() => title;
@@ -21,4 +22,4 @@ final events = LinkedHashMap<DateTime, List<Event>>(
 final _eventSource = Map.fromIterable(List.generate(50, (index) => index),
     key: (item) => DateTime.utc(2021, 12, item * 5),
     value: (item) => List.generate(
-        item % 4 + 1, (index) => Event("Event $item | ${index + 1}")));
+        item % 4 + 1, (index) => Event("Event $item | ${index + 1}", "")));

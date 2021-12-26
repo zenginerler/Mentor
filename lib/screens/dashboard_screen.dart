@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
 
+  static String id = 'dashboard';
+
   @override
   _DashboardPageState createState() => _DashboardPageState();
 }
@@ -14,15 +16,16 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Dashboard"),
+        title: const Text('Dashboard'),
         backgroundColor: Colors.orange,
         centerTitle: true,
       ),
-      body: Center(child: Text("Dashboard Page! $num1")),
+      body: Center(child: Text('Dashboard Page! $num1')),
       floatingActionButton: FloatingActionButton(
         onPressed: () => setState(() {
           num1++;
         }),
+        heroTag: null,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
         backgroundColor: Colors.orange,
