@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mentor/screens/home/home_screen.dart';
+import 'package:mentor/screens/home_screen.dart';
 import 'package:mentor/screens/utilities_screen.dart';
 import 'package:mentor/screens/dashboard_screen.dart';
 import 'package:mentor/screens/statistics_screen.dart';
