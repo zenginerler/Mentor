@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mentor/screens/home_screen.dart';
+import 'package:mentor/screens/home/home_screen.dart';
 import 'package:mentor/screens/utilities_screen.dart';
 import 'package:mentor/screens/dashboard_screen.dart';
 import 'package:mentor/screens/statistics_screen.dart';
@@ -7,6 +7,8 @@ import 'package:mentor/screens/profile_screen.dart';
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({Key? key}) : super(key: key);
+
+  static String id = 'navigation';
 
   @override
   _MainNavigationState createState() => _MainNavigationState();
@@ -29,7 +31,7 @@ class _MainNavigationState extends State<MainNavigation> {
       body: IndexedStack(
         index: currentIndex,
         children: screens,
-      ), 
+      ),
       bottomNavigationBar: BottomNavigationBar(
         // type: BottomNavigationBarType.fixed,
 
@@ -41,25 +43,30 @@ class _MainNavigationState extends State<MainNavigation> {
         items: const [
           // Bottom Navigation Icon Settings:
           BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home",
-              backgroundColor: Colors.blue),
+            icon: Icon(Icons.home),
+            label: "Home",
+            backgroundColor: Colors.blue,
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.lock_outlined),
-              label: "Utilities",
-              backgroundColor: Colors.red),
+            icon: Icon(Icons.lock_outlined),
+            label: "Utilities",
+            backgroundColor: Colors.red,
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.dashboard_rounded),
-              label: "Dashboard",
-              backgroundColor: Colors.orange),
+            icon: Icon(Icons.dashboard_rounded),
+            label: "Dashboard",
+            backgroundColor: Colors.orange,
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.show_chart_sharp),
-              label: "Statistics",
-              backgroundColor: Colors.green),
+            icon: Icon(Icons.show_chart_sharp),
+            label: "Statistics",
+            backgroundColor: Colors.green,
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: "Profile",
-              backgroundColor: Colors.purple),
+            icon: Icon(Icons.person),
+            label: "Profile",
+            backgroundColor: Colors.purple,
+          ),
         ],
       ),
     );
