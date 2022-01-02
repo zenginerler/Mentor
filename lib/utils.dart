@@ -19,7 +19,5 @@ final events = LinkedHashMap<DateTime, List<Event>>(
 )..addAll(_eventSource);
 
 // Temporary test events for calendar
-final _eventSource = Map.fromIterable(List.generate(50, (index) => index),
-    key: (item) => DateTime.utc(2021, 12, item * 5),
-    value: (item) => List.generate(
-        item % 4 + 1, (index) => Event("Event $item | ${index + 1}", "")));
+final _eventSource = { for (var item in List.generate(50, (index) => index)) DateTime.utc(2021, 12, item * 5) : List.generate(
+        item % 4 + 1, (index) => Event("Event $item | ${index + 1}", "")) };
