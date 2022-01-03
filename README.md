@@ -6,7 +6,9 @@ A new Flutter project.
 
 ![image](https://user-images.githubusercontent.com/64453575/140504653-9e962c14-618b-49a8-9444-28a7acd2ceb2.png)
 
+## Contributors
 
+Big Wide Man
 
 <!-- A few resources to get you started if this is your first Flutter project:
 ## Getting Started
