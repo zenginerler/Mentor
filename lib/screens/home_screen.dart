@@ -4,11 +4,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:collection';
 import 'package:intl/intl.dart';
 
+// color constants for this screen
 const Color _primaryColor = Colors.blue;
 const Color _lightPrimaryColor = Colors.lightBlue;
 const Color _darkPrimaryColor = Colors.indigo;
 const Color _secondaryColor = Colors.green;
 
+// event class for calendar events
 class Event {
   final String name;
   final String? note;
@@ -29,7 +31,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // map of events for each day
   late final LinkedHashMap<DateTime, List<Event>> _events;
+  // events for selected day or range
   late final ValueNotifier<List<Event>> _selectedEvents;
 
   RangeSelectionMode _rangeSelectionMode = RangeSelectionMode.toggledOff;
@@ -124,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 const Positioned(
                   bottom: -30,
-                  right: 16,
+                  right: 25,
                   child: AddEventButton(),
                 )
               ],
@@ -158,6 +162,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  // lists out the selected events at the bottom of the screen
   ValueListenableBuilder<List<Event>> _eventList() {
     return ValueListenableBuilder<List<Event>>(
       valueListenable: _selectedEvents,
@@ -183,6 +188,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  // creates the calendar and populates with events from firebase
   SafeArea _calendar() {
     return SafeArea(
       child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
@@ -267,9 +273,11 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+// button widget to add event
 class AddEventButton extends StatelessWidget {
   const AddEventButton({Key? key}) : super(key: key);
 
+  // route for event add popup
   void _eventPopup(BuildContext context) {
     Navigator.of(context).push(
       PageRouteBuilder(
@@ -296,31 +304,21 @@ class AddEventButton extends StatelessWidget {
     return GestureDetector(
       onTap: () => _eventPopup(context),
       child: SizedBox(
-        width: 130,
-        height: 60,
+        width: 60.0,
+        height: 60.0,
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: _secondaryColor,
             borderRadius: BorderRadius.circular(36.0),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Row(
-              children: const [
-                Icon(
-                  Icons.add_rounded,
-                  size: 30.0,
-                  color: Colors.white,
-                ),
-                Text(
-                  'Event',
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ],
+          child: const Padding(
+            padding: EdgeInsets.all(12.0),
+            child: Center(
+              child: Icon(
+                Icons.add_rounded,
+                size: 30.0,
+                color: Colors.white,
+              ),
             ),
           ),
         ),
@@ -329,6 +327,7 @@ class AddEventButton extends StatelessWidget {
   }
 }
 
+// popup to add event
 class EventPopup extends StatefulWidget {
   const EventPopup({Key? key}) : super(key: key);
 
@@ -337,9 +336,11 @@ class EventPopup extends StatefulWidget {
 }
 
 class _EventPopupState extends State<EventPopup> {
+  // reference to firebase events collection
   CollectionReference eventsCollection =
       FirebaseFirestore.instance.collection('events');
 
+  // typed event name and note
   String? _event;
   String? _note;
 
@@ -404,6 +405,7 @@ class _EventPopupState extends State<EventPopup> {
                   const Divider(thickness: 0.2),
                   GestureDetector(
                     onTap: () {
+                      // adds the event to firebase
                       if (_event != null) {
                         eventsCollection.add({
                           'event': _event,
