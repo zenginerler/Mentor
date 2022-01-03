@@ -11,7 +11,7 @@ Flutter Mobile Application Project for a non-profit organization.
 
 Mehmet Yavuz Zenginerler
 Ibrahim Eren Bisen
-
+Adam Sharif
 
 <!-- A few resources to get you started if this is your first Flutter project:
 ## Getting Started
