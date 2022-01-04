@@ -2,6 +2,7 @@
 
 Flutter Mobile Application Project for a non-profit organization.
 
+
 ## Previews
 
 ![image](https://user-images.githubusercontent.com/64453575/140504653-9e962c14-618b-49a8-9444-28a7acd2ceb2.png)
@@ -13,6 +14,7 @@ Flutter Mobile Application Project for a non-profit organization.
 - Ibrahim Eren Bisen 
 - Mehmet Uzgoren
 - Emin Nafi Koroglu
+- Michael Borja
 
 
 <!-- A few resources to get you started if this is your first Flutter project:
