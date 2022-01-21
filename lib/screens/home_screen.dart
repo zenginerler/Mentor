@@ -14,11 +14,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("HOME"),
+        title: const Text("Home"),
         backgroundColor: Colors.blue,
         centerTitle: true,
       ),
-      body: Center(child: Text("HOME PAGE! $num1")),
+      body: Center(child: Text("Home Page! $num1")),
       floatingActionButton: FloatingActionButton(
         onPressed: () => setState(() {
           num1++;

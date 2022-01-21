@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mentor/basic_navigation.dart';
+// import 'package:mentor/utils/basic_navigation.dart';
+import 'package:mentor/screens/login_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MainNavigation(),
+      home: const LoginPage(), //const MainNavigation(),
       debugShowCheckedModeBanner: false,
     );
   }
