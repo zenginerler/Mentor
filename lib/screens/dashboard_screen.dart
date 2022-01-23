@@ -20,6 +20,7 @@ class _DashboardPageState extends State<DashboardPage> {
       ),
       body: Center(child: Text("Dashboard Page! $num1")),
       floatingActionButton: FloatingActionButton(
+        heroTag: 'dashboard_button',
         onPressed: () => setState(() {
           num1++;
         }),
