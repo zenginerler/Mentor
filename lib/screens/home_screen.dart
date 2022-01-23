@@ -20,6 +20,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(child: Text("Home Page! $num1")),
       floatingActionButton: FloatingActionButton(
+        heroTag: 'home_button',
         onPressed: () => setState(() {
           num1++;
         }),

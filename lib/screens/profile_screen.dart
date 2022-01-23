@@ -20,6 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
       body: Center(child: Text("Profile Page! $num1")),
       floatingActionButton: FloatingActionButton(
+        heroTag: 'profile_button',
         onPressed: () => setState(() {
           num1++;
         }),

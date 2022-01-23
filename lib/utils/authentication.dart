@@ -7,6 +7,7 @@ class Authentication {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
+  // FIX: Connect firebase backend with signUp front-end
   Future<String> signUp(
       {required String email, required String password}) async {
     try {
@@ -30,11 +31,13 @@ class Authentication {
     }
   }
 
+  // FIX: Connect firebase backend with Login front-end
   Future<String> signIn(
       {required String email, required String password}) async {
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
+      // Do these after successful login:
       print(userCredential);
       return 'Sign In Successful!';
     } on FirebaseAuthException catch (err) {

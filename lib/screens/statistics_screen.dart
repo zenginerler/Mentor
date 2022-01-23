@@ -20,6 +20,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
       ),
       body: Center(child: Text("Statistics Page! $num1")),
       floatingActionButton: FloatingActionButton(
+        heroTag: 'statistics_button',
         onPressed: () => setState(() {
           num1++;
         }),

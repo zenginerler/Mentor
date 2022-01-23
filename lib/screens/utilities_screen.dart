@@ -20,6 +20,7 @@ class _UtilitiesPageState extends State<UtilitiesPage> {
       ),
       body: Center(child: Text("Utilities Page! $num1")),
       floatingActionButton: FloatingActionButton(
+        heroTag: 'utilities_button',
         onPressed: () => setState(() {
           num1++;
         }),
