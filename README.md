@@ -1,4 +1,5 @@
-# Mentor
+# Mentor  
+[![Dart](https://github.com/zenginerler/Mentor/actions/workflows/dart.yml/badge.svg)](https://github.com/zenginerler/Mentor/actions/workflows/dart.yml)  
 
 Flutter Mobile Application Project for a non-profit organization.
 
