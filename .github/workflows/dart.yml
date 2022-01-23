@@ -24,6 +24,10 @@ jobs:
       # - uses: dart-lang/setup-dart@v1
       - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
 
+      # Setup a Flutter Environment
+      - name: Flutter action
+        uses: subosito/flutter-action@v2.2.0
+
       - name: Install dependencies
         run: flutter pub get
 
