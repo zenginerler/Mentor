@@ -14,11 +14,11 @@ class _StatisticsPageState extends State<StatisticsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Statistics"),
+        title: const Text('Statistics'),
         backgroundColor: Colors.green,
         centerTitle: true,
       ),
-      body: Center(child: Text("Statistics Page! $num1")),
+      body: Center(child: Text('Statistics Page! $num1')),
       floatingActionButton: FloatingActionButton(
         heroTag: 'statistics_button',
         onPressed: () => setState(() {
