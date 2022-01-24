@@ -7,7 +7,7 @@ Flutter Mobile Application Project for a non-profit organization.
 ## Previews
 
 ### &#128679; Current Development Status &#128296;
-![mentor-status](https://user-images.githubusercontent.com/64453575/150667098-60cf2ece-9196-425d-8e52-7915ed92ef56.gif)
+<img src="https://user-images.githubusercontent.com/64453575/150667098-60cf2ece-9196-425d-8e52-7915ed92ef56.gif" width="400" height="790">
 
 ## Contributors
 
