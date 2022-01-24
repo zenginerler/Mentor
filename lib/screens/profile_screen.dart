@@ -14,11 +14,11 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile"),
+        title: const Text('Profile'),
         backgroundColor: Colors.purple,
         centerTitle: true,
       ),
-      body: Center(child: Text("Profile Page! $num1")),
+      body: Center(child: Text('Profile Page! $num1')),
       floatingActionButton: FloatingActionButton(
         heroTag: 'profile_button',
         onPressed: () => setState(() {

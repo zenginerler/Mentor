@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 import 'package:flutter/material.dart';
+import 'package:mentor/utils/authentication.dart';
 import 'package:mentor/utils/basic_navigation.dart';
 
 class LoginPage extends StatefulWidget {
@@ -44,14 +45,14 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: const <Widget>[
                     Text(
-                      "Login",
+                      'Login',
                       style: TextStyle(color: Colors.white, fontSize: 40),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      "Welcome to Mentor!",
+                      'Welcome to Mentor!',
                       style: TextStyle(color: Colors.white, fontSize: 18),
                     ),
                   ],
@@ -128,7 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: 20,
                         ),
                         const Text(
-                          "Forgot Password?",
+                          'Forgot Password?',
                           style: TextStyle(color: Colors.grey),
                         ),
                         const SizedBox(
@@ -139,9 +140,16 @@ class _LoginPageState extends State<LoginPage> {
                           width: 200,
                           child: ElevatedButton(
                             child: const Text('Login'),
-                            onPressed: () {
+                            onPressed: () async {
                               print(_emailController.text);
                               print(_passwordController.text);
+
+                              String response = await Authentication().signIn(
+                                email: _emailController.text,
+                                password: _passwordController.text,
+                              );
+                              print('Firebase Login Response: ' + response);
+
                               // TODO: Add a proper navigation 1 (this is temporary)
                               Navigator.push(
                                 context,
@@ -192,7 +200,7 @@ class _LoginPageState extends State<LoginPage> {
                                     color: Colors.blue[900]),
                                 child: const Center(
                                   child: Text(
-                                    "Google",
+                                    'Google',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold),
@@ -211,7 +219,7 @@ class _LoginPageState extends State<LoginPage> {
                                     color: Colors.blue[900]),
                                 child: const Center(
                                   child: Text(
-                                    "Github",
+                                    'Github',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold),
@@ -278,14 +286,14 @@ class _SignUpPageState extends State<SignUpPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: const <Widget>[
                     Text(
-                      "Sign Up",
+                      'Sign Up',
                       style: TextStyle(color: Colors.white, fontSize: 40),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      "Welcome to Mentor!",
+                      'Welcome to Mentor!',
                       style: TextStyle(color: Colors.white, fontSize: 18),
                     ),
                   ],
@@ -383,10 +391,21 @@ class _SignUpPageState extends State<SignUpPage> {
                           width: 200,
                           child: ElevatedButton(
                             child: const Text('Sign Up'),
-                            onPressed: () {
+                            onPressed: () async {
                               print(_emailController.text);
                               print(_passwordController.text);
                               print(_confirmPasswordController.text);
+
+                              // Temporary Password Check
+                              if (_passwordController.text ==
+                                  _confirmPasswordController.text) {
+                                String response = await Authentication().signUp(
+                                  email: _emailController.text,
+                                  password: _passwordController.text,
+                                );
+                                print('Firebase Sign Up Response: ' + response);
+                              }
+
                               // TODO: Add a proper navigation 3 (this is temporary)
                               Navigator.pop(context);
                             },
@@ -398,7 +417,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         Row(
                           children: <Widget>[
                             const Text(
-                              "Already have an account?",
+                              'Already have an account?',
                               style: TextStyle(color: Colors.grey),
                             ),
                             TextButton(
@@ -427,7 +446,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                     color: Colors.blue[900]),
                                 child: const Center(
                                   child: Text(
-                                    "Google",
+                                    'Google',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold),
@@ -446,7 +465,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                     color: Colors.blue[900]),
                                 child: const Center(
                                   child: Text(
-                                    "Github",
+                                    'Github',
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold),

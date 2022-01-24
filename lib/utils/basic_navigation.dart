@@ -42,23 +42,23 @@ class _MainNavigationState extends State<MainNavigation> {
           // Bottom Navigation Icon Settings:
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: "Home",
+              label: 'Home',
               backgroundColor: Colors.blue),
           BottomNavigationBarItem(
               icon: Icon(Icons.lock_outlined),
-              label: "Utilities",
+              label: 'Utilities',
               backgroundColor: Colors.red),
           BottomNavigationBarItem(
               icon: Icon(Icons.dashboard_rounded),
-              label: "Dashboard",
+              label: 'Dashboard',
               backgroundColor: Colors.orange),
           BottomNavigationBarItem(
               icon: Icon(Icons.show_chart_sharp),
-              label: "Statistics",
+              label: 'Statistics',
               backgroundColor: Colors.green),
           BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              label: "Profile",
+              label: 'Profile',
               backgroundColor: Colors.purple),
         ],
       ),
