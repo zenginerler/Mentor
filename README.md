@@ -20,6 +20,7 @@ Flutter Mobile Application Project for a non-profit organization.
 - Adam Sharif
 - Kamil Yildirim
 - Mehmet Bera Bisen
+- Emin Alp Arslan
 
 
 <!-- A few resources to get you started if this is your first Flutter project:
