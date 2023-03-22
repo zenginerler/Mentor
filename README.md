@@ -3,6 +3,7 @@
 
 Flutter Mobile Application Project for a non-profit organization.
 
+> FYI: This project has been moved to a private repository
 
 ## Previews
 
